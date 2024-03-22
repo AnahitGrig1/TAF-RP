@@ -26,4 +26,10 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test && npm run allure:report
+        run: npx playwright test
+      - name: Generate Allure report
+        run: npx allure generate allure-results -o allure-report --clean
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+
+
