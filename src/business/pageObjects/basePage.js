@@ -18,4 +18,8 @@ export class BasePage {
   async fill (input, data) {
     await input.fill(data);
   }
+
+  async wait (timeout) {
+    await this.page.waitForTimeout(timeout);
+  }
 }

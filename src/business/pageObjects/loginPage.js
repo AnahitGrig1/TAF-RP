@@ -6,5 +6,6 @@ export class LoginPage extends BasePage {
     this.usernameInput = page.locator('[name="login"]');
     this.passwordInput = page.locator('[name="password"]');
     this.submitButton = page.locator('//button[contains(text(), "Login")]');
+    this.ghostButton = page.locator('//button[contains(@class, "ghostButton")]');
   }
 }
