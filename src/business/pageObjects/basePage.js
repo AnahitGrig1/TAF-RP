@@ -22,4 +22,8 @@ export class BasePage {
   async wait (timeout) {
     await this.page.waitForTimeout(timeout);
   }
+
+  async waitFor (element,state, timeout) {
+    await element.waitFor(element, {'state': state, timeout: timeout});
+  }
 }
