@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+    runs-on: mac-latest
     env:
       USERNAME: AnahitGrig1
       PASSWORD: gitPass2L
@@ -29,6 +29,8 @@ jobs:
         run: npx playwright test
       - name: Generate Allure report
         run: npx allure generate allure-results -o allure-report --clean
+      - name: Show reports
+        run: npx playwright show-report allure-report
 
 
 
