@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
-    runs-on: mac-latest
+    runs-on: macos-latest
     env:
       USERNAME: AnahitGrig1
       PASSWORD: gitPass2L
