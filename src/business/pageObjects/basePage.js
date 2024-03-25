@@ -4,11 +4,16 @@ export class BasePage {
   constructor (page, pageUrl, pageName) {
     this.page = page;
     this.pageUrl = pageUrl;
-    this.log = logger(pageName);
+    this.pageName = pageName;
+    this.log = logger(this.pageName);
   }
 
   async open () {
     await this.page.goto(`${baseUrl}/${this.pageUrl}`);
+  }
+
+  async logInfo (text) {
+    await this.log.info(text);
   }
 
   async click (button) {
@@ -23,7 +28,7 @@ export class BasePage {
     await this.page.waitForTimeout(timeout);
   }
 
-  async waitFor (element,state, timeout) {
-    await element.waitFor(element, {'state': state, timeout: timeout});
+  async waitFor (element, state, timeout) {
+    await element.waitFor(element, { state, timeout });
   }
 }

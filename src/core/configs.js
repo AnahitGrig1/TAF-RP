@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import 'dotenv/config';
 export const baseUrl = 'https://rp.epam.com';
 export const credentials = {
   username: process.env.USERNAME,
