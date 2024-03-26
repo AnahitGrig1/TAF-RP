@@ -5,10 +5,19 @@ export class BasePage {
     this.page = page;
     this.pageUrl = pageUrl;
     this.pageName = pageName;
-     this.log = logger(pageName);
+    this.log = null;
   }
+
+   setLogger() {
+    this.log = logger(this.pageName);
+  }
+
   async logInfo (text) {
     await this.log.info(text);
+  }
+
+  async logErr (text) {
+    await this.log.error(text);
   }
   async open () {
     await this.page.goto(`${baseUrl}/${this.pageUrl}`);

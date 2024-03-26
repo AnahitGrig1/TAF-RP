@@ -1,5 +1,6 @@
 import { LoginPage } from './pageObjects/loginPage';
 import { DashboardPage } from './pageObjects/dashboards';
+import {LaunchesPage} from "./pageObjects/launches";
 
 export class PageFactory {
   constructor (page) {
@@ -12,6 +13,8 @@ export class PageFactory {
         return new LoginPage(this.page);
       case 'dashboardPage':
         return new DashboardPage(this.page);
+      case 'launchesPage':
+        return new LaunchesPage(this.page);
       default:
         throw new Error(`No such page: ${pageName}`);
     }

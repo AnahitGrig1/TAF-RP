@@ -11,14 +11,40 @@ test.beforeEach('Open login page', async ({ page }) => {
   loginPage = await pageFactory.create('loginPage');
   await loginPage.open();
 });
-test('Verify title', async () => {
-  await expect(loginPage.page).toHaveTitle(loginPageTestData.title);
-});
-test('Verify login functionality with valid creds', async () => {
-  const dashboardPage = await pageFactory.create('dashboardPage');
-  await loginPage.fill(loginPage.usernameInput, credentials.username);
-  await loginPage.fill(loginPage.passwordInput, credentials.password);
-  await loginPage.click(loginPage.submitButton);
-  await expect(dashboardPage.logoIcon).toBeVisible();
-  await loginPage.logInfo('Logged in successfully');
-});
+
+  test('Verify title', async () => {
+    await expect(loginPage.page).toHaveTitle(loginPageTestData.title);
+  });
+
+  test('Verify login functionality with valid creds', async () => {
+    const dashboardPage = await pageFactory.create('dashboardPage');
+    await loginPage.fill(loginPage.usernameInput, credentials.username);
+    await loginPage.fill(loginPage.passwordInput, credentials.password);
+    await loginPage.click(loginPage.submitButton);
+    await expect(dashboardPage.logoIcon).toBeVisible();
+    await loginPage.logInfo('Logged in successfully');
+  });
+
+  test.describe('login functionality with invalid creds', () => {
+    test('Verify login functionality with invalid username', async () => {
+      const dashboardPage = await pageFactory.create('dashboardPage');
+      await loginPage.fill(loginPage.usernameInput, loginPageTestData.invalidUsername);
+      await loginPage.fill(loginPage.passwordInput, credentials.password);
+      await loginPage.click(loginPage.submitButton);
+      await expect(loginPage.errorMessage).toBeVisible();
+      await loginPage.logInfo('Negative test passed successfully');
+    });
+
+    test('Verify login functionality with invalid password', async () => {
+      const dashboardPage = await pageFactory.create('dashboardPage');
+      await loginPage.fill(loginPage.usernameInput, credentials.username);
+      await loginPage.fill(loginPage.passwordInput, loginPageTestData.invalidPassword);
+      await loginPage.click(loginPage.submitButton);
+      await expect(loginPage.errorMessage).toBeVisible();
+      await loginPage.logInfo('Negative test passed successfully');
+    });
+  })
+
+
+
+

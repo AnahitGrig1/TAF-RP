@@ -5,9 +5,6 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: macos-latest
-    env:
-      USERNAME: AnahitGrig1
-      PASSWORD: gitPass2L
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

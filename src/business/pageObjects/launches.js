@@ -1,7 +1,8 @@
-import { BasePage } from '../../../../../../../../../src/business/pageObjects/basePage';
+import { BasePage } from './basePage';
 export class LaunchesPage extends BasePage {
-  constructor (page, pageUrl, pageName = 'Launches Page') {
-    super(page, pageUrl, pageName);
+  constructor (page) {
+    super(page);
     this.pageUrl = 'launches/all';
+    this.pageName = 'Launches Page';
   }
 }
