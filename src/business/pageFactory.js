@@ -1,6 +1,6 @@
 import { LoginPage } from './pageObjects/loginPage';
 import { DashboardPage } from './pageObjects/dashboards';
-import {LaunchesPage} from "./pageObjects/launches";
+import {LaunchesPage} from './pageObjects/launches';
 
 export class PageFactory {
   constructor (page) {

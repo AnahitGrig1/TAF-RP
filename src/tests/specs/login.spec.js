@@ -27,7 +27,6 @@ test.beforeEach('Open login page', async ({ page }) => {
 
   test.describe('login functionality with invalid creds', () => {
     test('Verify login functionality with invalid username', async () => {
-      const dashboardPage = await pageFactory.create('dashboardPage');
       await loginPage.fill(loginPage.usernameInput, loginPageTestData.invalidUsername);
       await loginPage.fill(loginPage.passwordInput, credentials.password);
       await loginPage.click(loginPage.submitButton);
@@ -36,15 +35,10 @@ test.beforeEach('Open login page', async ({ page }) => {
     });
 
     test('Verify login functionality with invalid password', async () => {
-      const dashboardPage = await pageFactory.create('dashboardPage');
       await loginPage.fill(loginPage.usernameInput, credentials.username);
       await loginPage.fill(loginPage.passwordInput, loginPageTestData.invalidPassword);
       await loginPage.click(loginPage.submitButton);
       await expect(loginPage.errorMessage).toBeVisible();
       await loginPage.logInfo('Negative test passed successfully');
     });
-  })
-
-
-
-
+  });
