@@ -1,5 +1,5 @@
-import { baseUrl } from '../../core/configs';
-import { logger } from '../../core/logger';
+import { baseUrl } from '../../core/configs.js';
+import { logger }  from '../../core/logger.js';
 export class BasePage {
   constructor (page, pageUrl, pageName) {
     this.page = page;
@@ -23,7 +23,10 @@ export class BasePage {
     await this.page.goto(`${baseUrl}/${this.pageUrl}`);
   }
 
-
+  async getTitle () {
+    console.log('title===', await this.page.title());
+    return this.page.title();
+  }
 
   async click (button) {
     await button.click();
@@ -37,7 +40,7 @@ export class BasePage {
     await this.page.waitForTimeout(timeout);
   }
 
-  async waitFor (element, state, timeout) {
-    await element.waitFor(element, { state, timeout });
+  async waitFor (element, state) {
+    await element.waitFor(element, { state });
   }
 }

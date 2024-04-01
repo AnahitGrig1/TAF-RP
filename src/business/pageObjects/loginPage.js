@@ -1,6 +1,6 @@
-import { BasePage } from './basePage';
+import { BasePage } from './basePage.js';
 
-export class LoginPage extends BasePage {
+ export class LoginPage extends BasePage {
   constructor (page) {
     super(page);
     this.pageUrl = 'ui/#login';
@@ -12,3 +12,4 @@ export class LoginPage extends BasePage {
     this.setLogger();
   }
 }
+

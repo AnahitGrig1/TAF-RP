@@ -1,4 +1,4 @@
-import { BasePage } from './basePage';
+import { BasePage } from './basePage.js';
 export class LaunchesPage extends BasePage {
   constructor (page) {
     super(page);

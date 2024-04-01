@@ -1,8 +1,8 @@
-import { LoginPage } from './pageObjects/loginPage';
-import { DashboardPage } from './pageObjects/dashboards';
-import {LaunchesPage} from './pageObjects/launches';
+import { LoginPage } from './pageObjects/loginPage.js';
+import { DashboardPage } from './pageObjects/dashboards.js';
+import {LaunchesPage} from './pageObjects/launches.js';
 
-export class PageFactory {
+  export class PageFactory {
   constructor (page) {
     this.page = page;
   }
