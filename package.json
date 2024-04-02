@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "npx jasmine src/tests/spec/login.spec.js --parallel=2",
+    "test:jasmine": "npx jasmine --parallel=2 src/tests/spec/*.spec.js",
     "test:generateReport": "npx playwright test && npm run allure:report",
     "test:headed": "npx playwright test --headed",
     "allure:results": "npx allure serve allure-results",

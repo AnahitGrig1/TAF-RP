@@ -20,20 +20,24 @@ export class BasePage {
     await this.log.error(text);
   }
   async open () {
-    await this.page.goto(`${baseUrl}/${this.pageUrl}`);
+    await this.page.goto(`${baseUrl}/${this.pageUrl}`, {waitUntil: 'domcontentloaded'});
   }
 
   async getTitle () {
-    console.log('title===', await this.page.title());
     return this.page.title();
   }
 
   async click (button) {
     await button.click();
+   await this.page.waitForLoadState()
   }
 
   async fill (input, data) {
     await input.fill(data);
+  }
+
+  async hover (element) {
+    await element.hover();
   }
 
   async wait (timeout) {
@@ -42,5 +46,16 @@ export class BasePage {
 
   async waitFor (element, state) {
     await element.waitFor(element, { state });
+  }
+
+  async waitUntil (element, state) {
+    await element.waitUntil(element, { state });
+  }
+
+  async getColor (element) {
+    return element.evaluate((el) => {
+      return getComputedStyle(el).getPropertyValue('background-color');
+
+    });
   }
 }
