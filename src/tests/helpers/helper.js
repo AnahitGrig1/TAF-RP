@@ -1,6 +1,6 @@
-import {chromium} from "playwright";
-import {PageFactory} from "../../business/pageFactory.js";
-import {credentials} from "../../core/configs.js";
+import {chromium} from 'playwright';
+import {PageFactory} from '../../business/pageFactory.js';
+import {credentials} from '../../core/configs.js';
 
 export let loginPage;
 export let pageFactory;
@@ -10,8 +10,8 @@ let page;
 export async function initialize() {
 
     beforeAll(async () => {
-        browser = await chromium.launch({headless: false});
-    })
+        browser = await chromium.launch();
+    });
     beforeEach(async () => {
         page = await browser.newPage();
         pageFactory = new PageFactory(page);

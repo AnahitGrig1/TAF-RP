@@ -29,7 +29,7 @@ export class BasePage {
 
   async click (button) {
     await button.click();
-   await this.page.waitForLoadState()
+   await this.page.waitForLoadState();
   }
 
   async fill (input, data) {

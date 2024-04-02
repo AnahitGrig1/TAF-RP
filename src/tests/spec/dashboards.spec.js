@@ -13,7 +13,7 @@ describe('Verify dashboard page:',  () => {
         const dashboardPage = await pageFactory.create('dashboardPage');
         await dashboardPage.open();
         await expect(dashboardPage.logoIcon.isVisible).toBeTruthy();
-    })
+    });
 
     it('Close button functionality check of edit popup ', async () => {
         await performLogin();
@@ -24,6 +24,6 @@ describe('Verify dashboard page:',  () => {
         await expect(dashboardPage.editPopup.isVisible).toBeTruthy();
         await dashboardPage.click(dashboardPage.editPopupCloseButton);
         await expect(dashboardPage.editPopup.isHidden).toBeTruthy();
-    })
+    });
 });
 

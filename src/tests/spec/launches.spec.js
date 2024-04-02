@@ -2,7 +2,7 @@ import {
     initialize,
     pageFactory,
     performLogin
-} from "../helpers/helper.js";
+} from '../helpers/helper.js';
 
 describe('Verify launches page:',   () => {
     initialize();
@@ -11,7 +11,7 @@ describe('Verify launches page:',   () => {
         const launchesPage = await pageFactory.create('launchesPage');
         await launchesPage.open();
        await expect(launchesPage.launchesButton.isVisible).toBeTruthy();
-    })
+    });
 
     it('Add filter button color change check on hover', async () => {
         await performLogin();
@@ -21,5 +21,5 @@ describe('Verify launches page:',   () => {
         await expect(await launchesPage.getColor(launchesPage.addFilterButton)).toBe('rgb(255, 255, 255)');
         await launchesPage.hover(launchesPage.addFilterButton);
         await expect(await launchesPage.getColor(launchesPage.addFilterButton)).toBe('rgb(33, 195, 220)');
-    })
+    });
 });
