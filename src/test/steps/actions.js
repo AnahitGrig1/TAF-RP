@@ -1,4 +1,4 @@
-import {Given, When, DataTable } from '@cucumber/cucumber';
+import {Given, When } from '@cucumber/cucumber';
 import {currentPage} from '../../core/cucumber/parameterTypes.js';
 
 Given(
@@ -31,7 +31,7 @@ When('I click on {element}',
     async (element) => {
         await currentPage.click(element);
     }
-)
+);
 
 When('I hover over {element}',
     { timeout: 5000 },
@@ -39,4 +39,4 @@ When('I hover over {element}',
         await currentPage.hover(element);
         // await page.wait(2000);
     }
-)
+);

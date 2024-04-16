@@ -1,6 +1,6 @@
 import { defineParameterType } from '@cucumber/cucumber';
-import {page, pageFactory} from "./hooks.js";
-import {credentials} from "../configs.js";
+import {page, pageFactory} from './hooks.js';
+import {credentials} from '../configs.js';
 
 export let currentPage = '';
 
@@ -13,23 +13,6 @@ defineParameterType({
 
         return currentPage;
     },
-    useForSnippets: false
-});
-
-defineParameterType({
-    name: 'objectOrString',
-    regexp: /(from|with)(.*)/,
-
-    transformer: (prefix, data) => {
-        if (prefix === 'from') {
-            const [objectName, baseKey, key] = data.trim().split('>');
-
-            return obj[objectName][baseKey][key];
-        }
-
-        return data;
-    },
-
     useForSnippets: false
 });
 
@@ -61,7 +44,7 @@ defineParameterType({
 
             return page.locator(currentPage[locatorName](index));
         } else {
-            return page.locator(await currentPage[locatorName])
+            return page.locator(await currentPage[locatorName]);
         }
     },
     useForSnippets: false

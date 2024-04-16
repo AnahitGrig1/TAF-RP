@@ -1,4 +1,4 @@
-import { createLogger, format, Logger, transports } from 'winston';
+import { createLogger, format, transports } from 'winston';
 
 const alignColorsAndTime = format.combine(
     format.colorize({

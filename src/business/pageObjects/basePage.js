@@ -1,7 +1,6 @@
 import { baseUrl } from '../../core/configs.js';
 import { logger } from '../../core/logger.js';
-import {afterEach} from "node:test";
-import {page} from "../../core/cucumber/hooks.js";
+
 export class BasePage {
   constructor (page, pageUrl, pageName) {
     this.page = page;

@@ -1,13 +1,13 @@
 import {Then} from '@cucumber/cucumber';
-import {expect} from "@playwright/test";
-import {currentPage} from "../../core/cucumber/parameterTypes.js";
-import {page} from "../../core/cucumber/hooks.js";
+import {expect} from '@playwright/test';
+import {currentPage} from '../../core/cucumber/parameterTypes.js';
+import {page} from '../../core/cucumber/hooks.js';
 
 Then('{element} should be visible',
     { timeout: 5000 },
     async (element) => {
 
-    await expect(element.isVisible()).toBeTruthy()
+    await expect(element.isVisible()).toBeTruthy();
 
     }
 );
@@ -43,4 +43,4 @@ Then('CSS {string} property of following elements should be {string}:',
         const getProp = await currentPage.getColor(page.locator(await currentPage[field]), property );
         await expect(getProp).toBe(propValue);
     }
-})
+});
