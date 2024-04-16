@@ -1,0 +1,13 @@
+
+{
+        "default": {
+                "parallel": 2,
+                "retry":  1,
+                "publishQuiet": true,
+                "dryRun": false,
+                "format": ["progress-bar"],
+                "runFeatures": ["src/test/features/launches.feature"],
+                "paths": ["src/test/features/*.feature"],
+                "import": ["src/test/**/*.js", "src/core/cucumber/*.js"]
+        }
+}

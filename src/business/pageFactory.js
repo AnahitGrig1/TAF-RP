@@ -1,6 +1,6 @@
-import { LoginPage } from './pageObjects/loginPage';
-import { DashboardPage } from './pageObjects/dashboards';
-import {LaunchesPage} from './pageObjects/launches';
+import { LoginPage } from './pageObjects/loginPage.js';
+import { DashboardPage } from './pageObjects/dashboards.js';
+import {LaunchesPage} from './pageObjects/launches.js';
 
 export class PageFactory {
   constructor (page) {
@@ -9,11 +9,11 @@ export class PageFactory {
 
   async create (pageName) {
     switch (pageName) {
-      case 'loginPage':
+      case 'Login page':
         return new LoginPage(this.page);
-      case 'dashboardPage':
+      case 'Dashboard page':
         return new DashboardPage(this.page);
-      case 'launchesPage':
+      case 'Launches page':
         return new LaunchesPage(this.page);
       default:
         throw new Error(`No such page: ${pageName}`);

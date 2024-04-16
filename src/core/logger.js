@@ -25,7 +25,7 @@ const getLogger = createLogger({
     ]
 });
 
-export const logger = (namespace = 'LOGGER'): Logger =>
+export const logger = (namespace = 'LOGGER') =>
     getLogger.child({ namespace });
 
 export const log = logger();
