@@ -19,25 +19,28 @@ export class BasePage {
   async logErr (text) {
     await this.log.error(text);
   }
-  async open () {
-    await this.page.goto(`${baseUrl}/${this.pageUrl}`);
-  }
 
+  async playwrightF () {
+    return {
+      open: async () => {
+        await this.page.goto(`${baseUrl}/${this.pageUrl}`);
+      },
 
+      click: async (button) => {
+        await button.click();
+      },
 
-  async click (button) {
-    await button.click();
-  }
+      fill: async (input, data) => {
+        await input.fill(data);
+      },
 
-  async fill (input, data) {
-    await input.fill(data);
-  }
+      wait: async (timeout) => {
+        await this.page.waitForTimeout(timeout);
+      },
 
-  async wait (timeout) {
-    await this.page.waitForTimeout(timeout);
-  }
-
-  async waitFor (element, state, timeout) {
-    await element.waitFor(element, { state, timeout });
+      waitFor: async (element, state, timeout) => {
+        await element.waitFor(element, { state, timeout });
+      }
+    }
   }
 }
