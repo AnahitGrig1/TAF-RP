@@ -1,9 +1,5 @@
 import {PageFactory} from '../../../business/pageFactory';
-import {LaunchesPage} from '../../../business/pageObjects/launches';
-import {successfulDeleteMessage} from "../../testData/launchPage";
-
-let cypressPage;
-let launchesPage;// = new LaunchesPage();
+import {successfulDeleteMessage} from '../../testData/launchPage';
 
 describe('example to-do app', {
     viewportHeight: 700,

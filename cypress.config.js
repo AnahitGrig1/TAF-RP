@@ -1,9 +1,9 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   reporter: 'mochawesome',
   reporterOptions: {
-    reportDir: `cypress/testReport`,
+    reportDir: 'cypress/testReport',
     overwrite: true
   },
   e2e: {

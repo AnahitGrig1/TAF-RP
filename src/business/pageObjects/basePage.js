@@ -36,35 +36,35 @@ export class BasePage {
 
   open() {
     cy.visit(`${baseUrl}/${this.pageUrl}`);
-  };
+  }
 
   click(buttonLocator, indexOrText)  {
     this.CYElement(buttonLocator, indexOrText).click();
-  };
+  }
 
   type(inputLocator, data)  {
     this.CYElement(inputLocator).type(data);
-  };
+  }
 
   scrollToView(locator, indexOrText)  {
     this.CYElement(locator, indexOrText).scrollIntoView();
-  };
+  }
 
   hover(locator) {
     this.CYElement(locator).realHover();
-  };
+  }
 
   wait(timeout) {
     cy.wait(timeout);
-  };
+  }
 
   shouldBeVisible(locator, indexOrText) {
     this.CYElement(locator, indexOrText).should('be.visible');
-  };
+  }
 
   shouldHaveCss(locator, cssProperty, value) {
     this.CYElement(locator).should('have.css', cssProperty, value);
-  };
+  }
 
   shouldBeSortedByIncrease(locator) {
    this.CYElement(locator).then($elements => {
@@ -72,7 +72,7 @@ export class BasePage {
       const sorted = [...original].sort((a, b) => b.localeCompare(a));
       expect(original).to.deep.equal(sorted);
     });
-  };
+  }
 
   shouldBeSortedByDecrease(locator) {
     this.CYElement(locator).then($elements => {
