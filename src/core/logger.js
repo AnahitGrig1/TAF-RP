@@ -1,4 +1,4 @@
-import { createLogger, format, Logger, transports } from 'winston';
+import { createLogger, format, transports } from 'winston';
 
 const alignColorsAndTime = format.combine(
     format.colorize({
@@ -25,7 +25,7 @@ const getLogger = createLogger({
     ]
 });
 
-export const logger = (namespace = 'LOGGER'): Logger =>
+export const logger = (namespace = 'LOGGER')=>
     getLogger.child({ namespace });
 
 export const log = logger();

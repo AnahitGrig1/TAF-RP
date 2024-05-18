@@ -1,46 +1,85 @@
 import { baseUrl } from '../../core/configs';
+import 'cypress-real-events/support';
 import { logger } from '../../core/logger';
+
 export class BasePage {
-  constructor (page, pageUrl, pageName) {
+  constructor(page, pageUrl, pageName) {
     this.page = page;
     this.pageUrl = pageUrl;
     this.pageName = pageName;
     this.log = null;
+    this.launchMenu = 'a[class*="sidebarButton__nav-link"]';
+    this.notification = '[data-automation-id="notificationsContainer"] p';
+    this.CYElement = (locator, indexOrText) => {
+      let element = cy.get(locator);
+      if (typeof indexOrText === 'number') {
+        element = element.eq(indexOrText);
+      }
+      if (typeof indexOrText === 'string') {
+        element = element.contains(indexOrText);
+      }
+      return element;
+    };
   }
 
    setLogger() {
     this.log = logger(this.pageName);
   }
 
-  async logInfo (text) {
-    await this.log.info(text);
+   logInfo(text) {
+     this.log.info(text);
   }
 
-  async logErr (text) {
-    await this.log.error(text);
+   logErr(text) {
+     this.log.error(text);
   }
 
-  async playwrightF () {
-    return {
-      open: async () => {
-        await this.page.goto(`${baseUrl}/${this.pageUrl}`);
-      },
+  open() {
+    cy.visit(`${baseUrl}/${this.pageUrl}`);
+  };
 
-      click: async (button) => {
-        await button.click();
-      },
+  click(buttonLocator, indexOrText)  {
+    this.CYElement(buttonLocator, indexOrText).click();
+  };
 
-      fill: async (input, data) => {
-        await input.fill(data);
-      },
+  type(inputLocator, data)  {
+    this.CYElement(inputLocator).type(data);
+  };
 
-      wait: async (timeout) => {
-        await this.page.waitForTimeout(timeout);
-      },
+  scrollToView(locator, indexOrText)  {
+    this.CYElement(locator, indexOrText).scrollIntoView();
+  };
 
-      waitFor: async (element, state, timeout) => {
-        await element.waitFor(element, { state, timeout });
-      }
-    }
+  hover(locator) {
+    this.CYElement(locator).realHover();
+  };
+
+  wait(timeout) {
+    cy.wait(timeout);
+  };
+
+  shouldBeVisible(locator, indexOrText) {
+    this.CYElement(locator, indexOrText).should('be.visible');
+  };
+
+  shouldHaveCss(locator, cssProperty, value) {
+    this.CYElement(locator).should('have.css', cssProperty, value);
+  };
+
+  shouldBeSortedByIncrease(locator) {
+   this.CYElement(locator).then($elements => {
+      const original = $elements.toArray().map(el => el.innerText);
+      const sorted = [...original].sort((a, b) => b.localeCompare(a));
+      expect(original).to.deep.equal(sorted);
+    });
+  };
+
+  shouldBeSortedByDecrease(locator) {
+    this.CYElement(locator).then($elements => {
+      const original = $elements.toArray().map(el => el.innerText);
+      const sorted = [...original].sort((a, b) => a.localeCompare(b));
+      expect(original).to.deep.equal(sorted);
+    });
   }
+
 }

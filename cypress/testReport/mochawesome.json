@@ -1,0 +1,179 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-05-18T07:23:09.434Z",
+    "end": "2024-05-18T07:23:45.470Z",
+    "duration": 36036,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "59017030-17c1-4a2b-8926-aa35c03c1f4a",
+      "title": "",
+      "fullFile": "src/tests/specs/cypress/launches.cy.js",
+      "file": "src/tests/specs/cypress/launches.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "\"Add filter\" button color change check on hover",
+          "fullTitle": "\"Add filter\" button color change check on hover",
+          "timedOut": null,
+          "duration": 5820,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "launchesPage.shouldHaveCss(launchesPage.addFilterButton, 'background-color', 'rgb(255, 255, 255)');\nlaunchesPage.hover(launchesPage.addFilterButton);\nlaunchesPage.shouldHaveCss(launchesPage.addFilterButton, 'background-color', 'rgb(33, 195, 220)');",
+          "err": {},
+          "uuid": "1039f690-7e37-4e20-9b11-619a7f7efd17",
+          "parentUUID": "59017030-17c1-4a2b-8926-aa35c03c1f4a",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Verify page scroll",
+          "fullTitle": "Verify page scroll",
+          "timedOut": null,
+          "duration": 4767,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "launchesPage.shouldBeVisible(launchesPage.demoLaunches, 1);\nlaunchesPage.scrollToView(launchesPage.demoLaunches, 4);\nlaunchesPage.shouldBeVisible(launchesPage.demoLaunches, 4);",
+          "err": {},
+          "uuid": "d61d5f7e-de4c-495f-a5a9-b8e591ef6714",
+          "parentUUID": "59017030-17c1-4a2b-8926-aa35c03c1f4a",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Verify user is able to see launches list sorted by most recent by default",
+          "fullTitle": "Verify user is able to see launches list sorted by most recent by default",
+          "timedOut": null,
+          "duration": 5063,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "launchesPage.shouldBeVisible(launchesPage.demoLaunches, 1);\nlaunchesPage.shouldBeSortedByIncrease(launchesPage.demoLaunches);",
+          "err": {},
+          "uuid": "99be0c48-d7d9-4f12-8c41-f59e9c1df75d",
+          "parentUUID": "59017030-17c1-4a2b-8926-aa35c03c1f4a",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Verify user is able to resort launches",
+          "fullTitle": "Verify user is able to resort launches",
+          "timedOut": null,
+          "duration": 6618,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "launchesPage.shouldBeVisible(launchesPage.demoLaunches, 1);\nlaunchesPage.click(launchesPage.startTimeButton);\nlaunchesPage.wait(2000);\nlaunchesPage.shouldBeSortedByDecrease(launchesPage.demoLaunches);",
+          "err": {},
+          "uuid": "bda00db9-6d53-45dc-bf3f-46d453673741",
+          "parentUUID": "59017030-17c1-4a2b-8926-aa35c03c1f4a",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Verify user is able to compare two launches",
+          "fullTitle": "Verify user is able to compare two launches",
+          "timedOut": null,
+          "duration": 4527,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "launchesPage.shouldBeVisible(launchesPage.launchCheckboxes, 0);\nlaunchesPage.click(launchesPage.launchCheckboxes, 0);\nlaunchesPage.click(launchesPage.launchCheckboxes, 1);\nlaunchesPage.shouldBeVisible(launchesPage.actionsButton);\nlaunchesPage.click(launchesPage.actionsButton);\nlaunchesPage.shouldBeVisible(launchesPage.actions, 'Compare');\nlaunchesPage.click(launchesPage.actions, 'Compare');\nlaunchesPage.shouldBeVisible(launchesPage.compareModal);",
+          "err": {},
+          "uuid": "777a9b1a-fbc7-4fb2-9625-7b76963c9127",
+          "parentUUID": "59017030-17c1-4a2b-8926-aa35c03c1f4a",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Verify user is able to delete launch",
+          "fullTitle": "Verify user is able to delete launch",
+          "timedOut": null,
+          "duration": 7241,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "launchesPage.shouldBeVisible(launchesPage.launchCheckboxes, 0);\nlaunchesPage.click(launchesPage.launchCheckboxes, 0);\nlaunchesPage.shouldBeVisible(launchesPage.actionsButton);\nlaunchesPage.click(launchesPage.actionsButton);\nlaunchesPage.shouldBeVisible(launchesPage.actions, 'Delete');\nlaunchesPage.click(launchesPage.actions, 'Delete');\nlaunchesPage.click(launchesPage.deleteButton);\nlaunchesPage.shouldBeVisible(launchesPage.notification);\nlaunchesPage.shouldBeVisible(launchesPage.notification, _launchPage.successfulDeleteMessage);",
+          "err": {},
+          "uuid": "4bdb4d4f-ed21-41ab-a58b-3213038a3bd9",
+          "parentUUID": "59017030-17c1-4a2b-8926-aa35c03c1f4a",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "1039f690-7e37-4e20-9b11-619a7f7efd17",
+        "d61d5f7e-de4c-495f-a5a9-b8e591ef6714",
+        "99be0c48-d7d9-4f12-8c41-f59e9c1df75d",
+        "bda00db9-6d53-45dc-bf3f-46d453673741",
+        "777a9b1a-fbc7-4fb2-9625-7b76963c9127",
+        "4bdb4d4f-ed21-41ab-a58b-3213038a3bd9"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 34036,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/testReport",
+        "overwrite": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -5,8 +5,5 @@ export class DashboardPage extends BasePage {
     super(page);
     this.pageUrl = 'ui/#dashboards';
     this.pageName = 'Dashboards Page';
-    this.logoIcon = page.locator(
-      '//div[contains(@class,"layout__corner-area")]'
-    );
   }
 }
