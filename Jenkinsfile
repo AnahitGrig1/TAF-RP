@@ -5,10 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                       sh '''
-                              npm i -D @playwright/test
-                              npx playwright install
-                            '''
+                       sh 'npx playwright install --with-deps'
 
             }
         }
