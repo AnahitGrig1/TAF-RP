@@ -8,7 +8,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'npm install eslint --save-dev'
+                       sh 'npm install @playwright/test'
                        sh 'npx playwright install --with-deps'
+
 
             }
         }
