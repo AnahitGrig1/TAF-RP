@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:generateReport": "npx playwright test && npm run allure:report",
-    "test:headed": "npx playwright test --headed",
+    "test": "npx playwright test",
     "allure:results": "npx allure serve allure-results",
     "allure:report": "npx allure generate allure-results -o allure-report --clean",
     "prettier": "prettier --write './**/**/**/*.js'",
