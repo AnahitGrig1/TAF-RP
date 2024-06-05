@@ -5,12 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                    sh 'node --version'
-                                                sh 'npm --version'
-                                                sh 'npm --globalconfig=.npmrc-ci ci'
-                                                sh 'npx playwright --version'
-                                                sh 'npx playwright install-deps chromium 1>&2'
-                                                sh 'npx playwright install'
+                       sh '''
+                              npm i -D @playwright/test
+                              npx playwright install
+                            '''
+
             }
         }
         stage('Lint') {
