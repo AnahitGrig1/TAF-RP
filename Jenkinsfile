@@ -1,7 +1,7 @@
 pipeline {
     agent any
  tools {
-        allure 'Allure'
+        allure 'ALLURE_HOME'
     }
 
     stages {
