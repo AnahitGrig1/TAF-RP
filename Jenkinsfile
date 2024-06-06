@@ -26,6 +26,8 @@ pipeline {
         stage('Auto Test') {
             steps {
                 echo 'Auto tests....'
+                 withCredentials([usernamePassword(credentialsId: 'rpCreds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+
                  sh 'npm run test'
             }
         }
