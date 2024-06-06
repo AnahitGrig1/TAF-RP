@@ -1,13 +1,12 @@
 pipeline {
     agent any
-     tools {
-            nodejs 'NodeJS'
-        }
+
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'npm install -g node@18.0.0'
                sh 'npm install dotenv'
                 sh 'npm install eslint --save-dev'
                        sh 'npm install @playwright/test'
