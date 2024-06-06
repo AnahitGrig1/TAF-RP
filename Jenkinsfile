@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+ tools {
+        allure 'Allure'
+    }
 
     stages {
         stage('Build') {
@@ -38,7 +40,7 @@ pipeline {
                                 jdk: '',
                                 properties: [],
                                 reportBuildPolicy: 'ALWAYS',
-                                results: [[path: 'allure-report']]
+                                results: [[path: 'allure-results']]
                             ])
                         }
                     }
