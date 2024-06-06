@@ -10,6 +10,7 @@ pipeline {
                 echo 'Building..'
                 sh 'npm install -g node@18.0.0'
                sh 'npm install dotenv'
+               sh 'npm install --save-dev allure-commandline'
                 sh 'npm install eslint --save-dev'
                        sh 'npm install @playwright/test'
                        sh 'npx playwright install --with-deps'
