@@ -27,9 +27,22 @@ pipeline {
             steps {
                 echo 'Auto tests....'
                  withCredentials([usernamePassword(credentialsId: 'rpCreds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                 sh 'npm run test'
+                 sh 'npm run test:generateReport'
                  }
             }
         }
+             stage('Allure Report') {
+                    steps {
+                        script {
+                            allure([
+                                includeProperties: false,
+                                jdk: '',
+                                properties: [],
+                                reportBuildPolicy: 'ALWAYS',
+                                results: [[path: 'allure-report']]
+                            ])
+                        }
+                    }
+                }
     }
 }
