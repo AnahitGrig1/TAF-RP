@@ -58,7 +58,7 @@ pipeline {
                                             -Dsonar.projectKey=RP \
                                             -Dsonar.projectName=RP \
                                              -Dsonar.projectVersion=1.0 \
-                                             -Dsonar.sources=main"
+                                             -Dsonar.sources=src"
                                     }
                                 }
                             }
