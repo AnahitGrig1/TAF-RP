@@ -46,5 +46,22 @@ pipeline {
                         }
                     }
                 }
+
+                   stage('Code Analysis') {
+                            environment {
+                                scannerHome = tool 'SonarRP'
+                            }
+                            steps {
+                                script {
+                                    withSonarQubeEnv('Sonar') {
+                                        sh "${scannerHome}/bin/sonar-scanner \
+                                            -Dsonar.projectKey=RP \
+                                            -Dsonar.projectName=RP \
+                                             -Dsonar.projectVersion=1.0 \
+                                             -Dsonar.sources=./src/main"
+                                    }
+                                }
+                            }
+                        }
     }
 }
